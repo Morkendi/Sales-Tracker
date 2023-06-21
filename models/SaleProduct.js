@@ -14,7 +14,7 @@ SaleProduct.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'Sale',
+        model: 'sale',
         key: 'id',
       },
     },
@@ -22,7 +22,7 @@ SaleProduct.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'Product',
+        model: 'product',
         key: 'id',
       },
     },
