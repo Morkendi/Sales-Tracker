@@ -19,14 +19,14 @@ Sale.init(
         },
       },
       client_id: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         references: {
             model: 'client',
             key: 'id',
         },
       },
       date_created: {
-        type: DataTypes.DATE,
+        type: DataTypes.DATEONLY,
         allowNull: false,
         defaultValue: DataTypes.NOW,
       },
