@@ -32,12 +32,8 @@ Sale.init(
             key: 'id',
         },
       },
-      quantity: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
       date_created: {
-        type: DataTypes.DATE,
+        type: DataTypes.DATEONLY,
         allowNull: false,
         defaultValue: DataTypes.NOW,
       },
