@@ -3,11 +3,32 @@ const {User} = require('../../models')
 
   
 
+router.post('/signup', async (req, res) => {
+    try {
+      const dbUserData = await User.create({
+        email: req.body.email,
+        name: req.body.name,
+        password: req.body.password,
+      });
+  
+      req.session.save(() => {
+        req.session.user_id = dbUserData.id;
+        req.session.loggedIn = true;
+  
+        res.status(200).json(dbUserData);
+      });
+      
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
+  });
+
   router.post('/login', async (req, res) => {
     try {
       const dbUserData = await User.findOne({
         where: {
-          username: req.body.email,
+          email: req.body.email,
         },
       });
   
