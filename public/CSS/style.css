@@ -14,7 +14,7 @@
     position: relative;
     align-items: flex-start;
     flex-shrink: 0;
-    background-image: (url('/public/images/Setas.png'));
+    background-color: aqua;
   }
   .login-rectanglesignin {
     top: 248px;
