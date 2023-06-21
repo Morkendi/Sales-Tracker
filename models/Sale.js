@@ -25,7 +25,7 @@ Sale.init(
             key: 'id',
         },
       },
-      client: {
+      client_id: {
         type: DataTypes.STRING,
         references: {
             model: 'client',
