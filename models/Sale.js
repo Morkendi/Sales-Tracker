@@ -33,7 +33,7 @@ Sale.init(
         },
       },
       quantity: {
-        type: DataTypes.FLOAT,
+        type: DataTypes.INTEGER,
         allowNull: false,
       },
       date_created: {
