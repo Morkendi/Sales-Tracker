@@ -16,6 +16,7 @@
     flex-shrink: 0;
     background-color: aqua;
   }
+
   .login-rectanglesignin {
     top: 248px;
     left: 0px;
@@ -25,6 +26,7 @@
     margin: auto;
     position: absolute;
   }
+  
   .login-vector {
     top: 248px;
     left: 0px;
