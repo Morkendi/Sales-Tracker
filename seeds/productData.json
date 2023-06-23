@@ -4,7 +4,31 @@
         "price": 290 
     },
     {
-        "product_name" : "Yellow Oyster Mushroom",
+        "product_name" : "Gray Oyster Mushroom",
         "price": 290 
+    },
+    {
+        "product_name" : "Pink Oyster Mushroom",
+        "price": 290 
+    },
+    {
+        "product_name" : "Eryngii Mushroom",
+        "price": 450 
+    },
+    {
+        "product_name" : "Lions Mane Powder",
+        "price": 420 
+    },
+    {
+        "product_name" : "Lions Mane Extract",
+        "price": 420
+    },
+    {
+        "product_name" : "Reishi Extract",
+        "price": 290 
+    },
+    {
+        "product_name" : "Reishi + COLD BREW",
+        "price": 90 
     }
 ]
