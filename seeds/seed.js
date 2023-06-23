@@ -16,10 +16,10 @@ const seedDatabase = async () => {
     returning: true,
   });
 
-  const sales = await Sale.bulkCreate(saleData)
-  const products = await Product.bulkCreate(productData);
-  const saleProducts = await SaleProduct.bulkCreate(saleProductData)
   const clients = await Client.bulkCreate(clientData)
+  const products = await Product.bulkCreate(productData);
+  const sales = await Sale.bulkCreate(saleData)
+  const saleProducts = await SaleProduct.bulkCreate(saleProductData)
 
 
   process.exit(0);
