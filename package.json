@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+  "dev":  "npx tailwindcss -i ./input.css -o ./public/css/output.css --watch",
+
     "seed": "node seeds/seed.js"
   },
   "repository": {
@@ -27,5 +29,8 @@
     "express-session": "^1.17.3",
     "mysql2": "^3.3.5",
     "sequelize": "^6.32.0"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.2"
   }
 }
