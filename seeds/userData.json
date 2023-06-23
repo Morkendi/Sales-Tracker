@@ -12,6 +12,26 @@
   {
     "name": "Alex",
     "email": "alex@email.com",
-    "password": "password12345"
+    "password": "password123"
+  },
+  {
+    "name": "Carlos",
+    "email": "calos@email.com",
+    "password": "password123"
+  },
+  {
+    "name": "Daniel",
+    "email": "daniel@email.com",
+    "password": "password123"
+  },
+  {
+    "name": "Yuleth",
+    "email": "yuleth@email.com",
+    "password": "password123"
+  },
+  {
+    "name": "Ernesto",
+    "email": "ernesto@email.com",
+    "password": "password123"
   }
 ]
