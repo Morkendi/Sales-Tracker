@@ -18,13 +18,6 @@ Sale.init(
           key: 'id',
         },
       },
-      product_id: {
-        type: DataTypes.INTEGER,
-        references: {
-            model: 'product',
-            key: 'id',
-        },
-      },
       client_id: {
         type: DataTypes.INTEGER,
         references: {
