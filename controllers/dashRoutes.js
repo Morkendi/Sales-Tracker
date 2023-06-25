@@ -5,9 +5,12 @@ const withAuth = require('../utils/auth')
 
 // CRUD Operations
 
-router.get('/', withAuth, async (req,res)=>{   
+router.get('/', async (req,res)=>{   
     try{
-        res.render('homepage')
+        res.render('homepage',
+        {
+            loggedIn: req.session.loggedIn
+        })
     } catch(err){
         res.status(400).json(err)
     }
@@ -22,9 +25,23 @@ router.get('/login', async (req,res)=>{
     }
 })
 
-router.get('/dashboard', async (req,res)=>{   
+router.get('/dashboard',withAuth ,async (req,res)=>{   
     try{
-        res.render('dashboard')
+        res.render('dashboard',
+        {
+            loggedIn: req.session.loggedIn
+        })
+    } catch(err){
+        res.status(400).json(err)
+    }
+})
+
+router.get('/sales',withAuth ,async (req,res)=>{   
+    try{
+        res.render('sales',
+        {
+            loggedIn: req.session.loggedIn
+        })
     } catch(err){
         res.status(400).json(err)
     }

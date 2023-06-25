@@ -15,30 +15,39 @@
             <div class= "text-3xl font-bold justify-center text-white p-6"> Sales Tracker </div>
         </div>
         <div class="flex flex-col p-7"> 
-            <a href="navbarTest.html" class="text-lg flex flex-row font-sans justify-start text-white">
+            <a href="/dashboard" class="text-lg flex flex-row font-sans justify-start text-white">
                 <img src="/assets/icons/home.svg" class="h-6 mr-3" alt="Home Logo" />
                 <span>Dashboard </span>
             </a>
-            <a href=".html" class="text-lg flex flex-row font-sans justify-start text-white">
+            <a href="/employee" class="text-lg flex flex-row font-sans justify-start text-white">
                 <img src="/assets/icons/contact.svg" class="h-6 mr-3" alt="Employee Logo" />
                 <span>Employee </span>
             </a>
-            <a href="SalesTest.html" class="text-lg flex flex-row font-sans justify-start text-white ">
+            <a href="/sales" class="text-lg flex flex-row font-sans justify-start text-white ">
                 <img src="/assets/icons/boton-circular-plus.png" class=" h-6 mr-3" alt="Home Logo" />
                 <span>Sales History </span>
             </a>
-            <a href="navbarTest.html" class="text-lg flex flex-row font-sans justify-start text-white">
+            <a href="/products" class="text-lg flex flex-row font-sans justify-start text-white">
                 <img src="/assets/icons/home.svg" class=" h-6 mr-3" alt="Home Logo" />
                 <span>Products </span>
             </a>
         </div>
+        {{#if loggedIn}} 
         <div> 
-            <div class="text-lg font-bold flex justify-end text-white p-6"> Log Out </div>
+            <button class="text-lg font-bold flex justify-end text-white p-6" id="logout"> Log Out </button>
         </div>
+        {{else}}
+        <div> 
+            <button class="text-lg font-bold flex justify-end text-white p-6"> Log In </button>
+        </div>
+        {{/if}}
     </aside>
     <main>
         {{{body}}}
     </main>
+    {{#if loggedIn}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
     <script src="./js/index.js"></script>
 </body>
 

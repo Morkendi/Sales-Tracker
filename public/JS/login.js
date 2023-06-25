@@ -1,10 +1,11 @@
 const loginFormHandler = async (event) => {
     event.preventDefault();
   
-    const email = document.querySelector('#email-login').value.trim();
-    const password = document.querySelector('#password-login').value.trim();
-  
+    const email = document.getElementById('email-login').value.trim();
+    const password = document.getElementById('password-login').value.trim();
+ 
     if (email && password) {
+      
       const response = await fetch('/api/users/login', {
         method: 'POST',
         body: JSON.stringify({ email, password }),
@@ -14,13 +15,13 @@ const loginFormHandler = async (event) => {
       if (response.ok) {
         document.location.replace('/dashboard');
       } else {
-        alert(response.statusText);
+        alert('unable to login');
       }
     }
   };
   
   
-document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
+document.getElementById('login').addEventListener('click', loginFormHandler);
   
 
   
