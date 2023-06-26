@@ -46,8 +46,11 @@
                     <button class="text-center rounded-md bg-slate-800 text-white my-2 mx-4 py-2" id="newSale">Submit Sale</button>
                 </div>
             </div>
+
             <div>
-                <div class="text-3xl font-bold text-black p-4">Sales History </div>
+                {{#each sales as |sale|}}
+                <div class="text-3xl font-bold text-black p-4">Sales History {{id}} </div>
+                    
                     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                     <table class="text-xs text-gray-700 uppercase bg-gray-50 dark:ng-gray-700 dark:text-gray-400">
                         <thead >
@@ -59,18 +62,24 @@
                                 <th scope="col" class="px-6 py-3">Amount</th>
                             </tr>
                         </thead>
-                        <tbody>
 
-                        <!-- Pending: define expressions for retrieve data from database -->
+                        <tbody>
+                            {{#each sale.sale_products as |saleProducts|}}
                             <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                                 <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap 
                                 dark:text-white">1</td>
                                 <td class="px-6 py-4">Mix Oyster Mushroom</td>
-                                <td class="px-6 py-4">3</td>
-                                <td class="px-6 py-4">09-06-2022</td>
+
+                                <td class="px-6 py-4">{{quantity}}</td>
+                                <td class="px-6 py-4">{{date_created}}</td>
                                 <td class="px-6 py-4">$15.00</td>
                             </tr>
-                            <tr>
+                            {{/each}}
+                        </tbody>
+                        </table>
+                    </div>
+                    {{/each}}
+                            {{!-- <tr>
                                 <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">2</td>
                                 <td class="px-6 py-4">Reishi extract</td>
                                 <td class="px-6 py-4">5</td>
@@ -83,10 +92,9 @@
                                 <td class="px-6 py-4">5</td>
                                 <td class="px-6 py-4">11-06-2022</td>
                                 <td class="px-6 py-4">$50.00</td>
-                            </tr>
-                        </tbody>
-                        </table>
-                    </div>
+                            </tr> --}}
+                        
+                      
                 <!-- <div class="bg-gray-200 w-96 h-96 rounded-xl">    
                     <div class="flex flex-row underline-offset-1 ">
                         <div class="block mb-2 text-lg font-bold text-gray-900 dark:text-white p-3 first-letter:"> ID</div>
