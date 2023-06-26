@@ -28,7 +28,7 @@ router.get('/login', async (req,res)=>{
 
 router.get('/dashboard',withAuth ,async (req,res)=>{   
     try{
-       /* const sale = await Sale.findAll({
+        const sale = await Sale.findAll({
             where: {
                 user_id: req.session.user_id
             },
@@ -38,35 +38,33 @@ router.get('/dashboard',withAuth ,async (req,res)=>{
             {
                 model: SaleProduct,
                 foreignKey: "sale_id",
-                attributes: ['quantity'],
+                attributes: ['quantity','id'],
                 include: {
                         model: Product,
                         foreignKey: "product_id",
                         attributes: ['product_name','price']
                 }
-            }]
+            },
+            {
+            model: Product,
+            through: SaleProduct,
+            foreignKey: "sale_id",
+            attributes: ['product_name','price']}]
         })
     
-        const sales = sale.map((singleSale) => singleSale.get({ plain: true }));*/
+        const sales = sale.map((singleSale) => singleSale.get({ plain: true }));
 
-        const search = await SaleProduct.findAll({
-            include: { 
-                model: Product,
-                foreignKey: "product_id",
-                attributes: ['product_name','price']}
-        })
+        const client = await Client.findAll()
 
-        const searches = search.map((singleSale) => singleSale.get({ plain: true }));
-        //const saleInfo = sale.sale_products.map((ola)=> ola.get({}))
-
-        console.log(searches)
-        //console.log(sales)
-
-       // console.log(saleInfo)
+        const clients = client.map((eachclient) => eachclient.get({plain: true}))
+      
+        console.log(sales)
+        console.log(clients)
 
         res.render('dashboard',
         {
-           // sales,
+            clients,
+            sales,
             loggedIn: req.session.loggedIn
         })
     } catch(err){

@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <title>Dashboard</title>
-</head>
-<body>
+
     <div class="flex flex-row p-8"> 
         <div class="px-8">
             <div class="text-lg font-medium text-black"> Month </div> 
@@ -24,7 +17,7 @@
             <div class="px-6">
                 <div class="text-3xl font-bold text-black p-4"> New Sale </div>  
                 <div class="bg-amber-600 w-64 h-96 shadow-xl rounded-xl flex flex-col">
-                    <div class="pl-4" >
+                    {{!-- <div class="pl-4" >
                         <label for="product_name" class="block mb-1 text-lg font-bold text-gray-900 dark:text-white pt-3 tp-2">Product</label>
                         <!-- Pending: define id of product -->
                         <input type="text" id="product" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-11/12 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Pink Oyster Mushroom" required>
@@ -33,18 +26,53 @@
                         <label for="quantity" class="block mb-2 text-lg font-bold text-gray-900 dark:text-white pt-3 ">Quantity</label>
                         <!-- Pending: define id of Quantity -->
                         <input type="text" id="quantity" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-11/12 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="5" required>
-                    </div>
+                    </div> --}}
                     {{!-- <div class="pl-4" >
                         <label for="date" class="block mb-2 text-lg font-bold text-gray-900 dark:text-white pt-3">Date</label>
                         <input type="text" id="date_order" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-11/12 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="21-06-2022" required>
                     </div> --}}
                     <div class="pl-4" >
+                    <select id = "myList" onchange = "listPicker()" >   
+                            {{#each clients as |client|}} 
+                            <option data-id="{{id}}"> {{client_name}} </option>  
+                            {{/each}} 
+                        </select>
                         <label for="client" class="block mb-2 text-lg font-bold text-gray-900 dark:text-white pt-3 ">Client</label>
                         <!-- Pending: define id of Client name -->
                         <input type="text" id="client_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-11/12 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Restaurante Hueso" required>
                     </div>
                     <button class="text-center rounded-md bg-slate-800 text-white my-2 mx-4 py-2" id="newSale">Submit Sale</button>
                 </div>
+            </div>
+            <div class="flex flex-row p-8"> 
+                <div class="px-6">
+                    <div class="text-3xl font-bold text-black p-4"> New Order </div>  
+                    <div class="bg-amber-600 w-64 h-96 shadow-xl rounded-xl flex flex-col">
+                        <div class="pl-4" >
+                            <label for="product_name" class="block mb-1 text-lg font-bold text-gray-900 dark:text-white pt-3 tp-2">Product</label>
+                            <!-- Pending: define id of product -->
+                            <input type="text" id="product" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-11/12 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Pink Oyster Mushroom" required>
+                        </div>
+                        <div class="pl-4" >
+                            <label for="quantity" class="block mb-2 text-lg font-bold text-gray-900 dark:text-white pt-3 ">Quantity</label>
+                            <!-- Pending: define id of Quantity -->
+                            <input type="text" id="quantity" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-11/12 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="5" required>
+                        </div>
+                        {{!-- <div class="pl-4" >
+                            <label for="date" class="block mb-2 text-lg font-bold text-gray-900 dark:text-white pt-3">Date</label>
+                            <input type="text" id="date_order" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-11/12 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="21-06-2022" required>
+                        </div> --}}
+                        <div class="pl-4" >
+                         <select id = "mySaleList" onchange = "salePicker()" >   
+                                {{#each sales as |sale|}} 
+                                <option data-id="{{id}}"> {{id}} </option>  
+                                {{/each}} 
+                            </select> 
+                             <label for="client" class="block mb-2 text-lg font-bold text-gray-900 dark:text-white pt-3 ">SaleId</label>
+                            <input type="text" id="sale_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-11/12 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                        </div> 
+                        <button class="text-center rounded-md bg-slate-800 text-white my-2 mx-4 py-2" id="newOrder">Submit order</button>
+                    </div>
             </div>
 
             <div>
@@ -56,25 +84,32 @@
                         <thead >
                             <tr>
                                 <th scope="col" class="px-6 py-3">ID</th>
-                                <th scope="col" class="px-6 py-3">Product</th>
                                 <th scope="col" class="px-6 py-3">Qty</th>
                                 <th scope="col" class="px-6 py-3">Date</th>
+                                <th scope="col" class="px-6 py-3">Product</th>
                                 <th scope="col" class="px-6 py-3">Amount</th>
                             </tr>
                         </thead>
 
                         <tbody>
-                            {{#each sale.sale_products as |saleProducts|}}
-                            <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                                <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap 
-                                dark:text-white">1</td>
-                                <td class="px-6 py-4">Mix Oyster Mushroom</td>
 
-                                <td class="px-6 py-4">{{quantity}}</td>
-                                <td class="px-6 py-4">{{date_created}}</td>
-                                <td class="px-6 py-4">$15.00</td>
-                            </tr>
-                            {{/each}}
+                            {{#each sale.sale_products as |saleProducts|}}
+
+                            {{#each sale.products as |product|}}  
+      
+                            {{#if @../last}}   
+                                {{!-- {{#each sale.products as |product|}} --}}
+                                 <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                                    <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap 
+                                    dark:text-white">{{saleProducts.id}}</td>
+                                    <td class="px-6 py-4">{{saleProducts.quantity}}</td>
+                                    <td class="px-6 py-4">{{sale.date_created}}</td>                           
+                                    <td class="px-6 py-4"> {{product.product_name}}</td>  
+                                    <td class="px-6 py-4">{{product.price}}$</td>       
+                                 </tr>
+                             {{/if}}
+                        {{/each}}
+                        {{/each}} 
                         </tbody>
                         </table>
                     </div>
@@ -106,5 +141,11 @@
                 </div> -->
             </div>
         </div>
-</body>
-</html>
+        {{!-- <script type="text/javascript"> 
+                Handlebars.registerHelper('areEqual', (value, value2)=>{
+                console.log(value)
+                console.log(value2)
+                return value == value2;
+                });
+        </script> --}}
+        <script src="/js/dashboard.js"></script>
