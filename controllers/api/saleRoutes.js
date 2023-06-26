@@ -33,7 +33,7 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
     try{
         const newSale = await Sale.create({
-            user_id: req.body.user_id,
+            user_id: req.session.user_id,
             client_id: req.body.client_id,
             date_created: req.body.date_created
         });
