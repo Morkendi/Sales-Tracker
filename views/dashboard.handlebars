@@ -43,7 +43,7 @@
                         <!-- Pending: define id of Client name -->
                         <input type="text" id="client_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-11/12 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Restaurante Hueso" required>
                     </div>
-                    <button class="text-center rounded-md bg-slate-800 text-white my-2 mx-4 py-2" id="newSale">Submit Sale</button>
+                    <button class="text-center rounded-md bg-slate-800 text-white my-2 mx-4 py-2" id="newSale" data-id="{{sales.id}}">Submit Sale</button>
                 </div>
             </div>
 
@@ -56,24 +56,34 @@
                         <thead >
                             <tr>
                                 <th scope="col" class="px-6 py-3">ID</th>
-                                <th scope="col" class="px-6 py-3">Product</th>
                                 <th scope="col" class="px-6 py-3">Qty</th>
                                 <th scope="col" class="px-6 py-3">Date</th>
+                                <th scope="col" class="px-6 py-3">Product</th>
                                 <th scope="col" class="px-6 py-3">Amount</th>
                             </tr>
                         </thead>
 
                         <tbody>
-                            {{#each sale.sale_products as |saleProducts|}}
-                            <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                                <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap 
-                                dark:text-white">1</td>
-                                <td class="px-6 py-4">Mix Oyster Mushroom</td>
 
-                                <td class="px-6 py-4">{{quantity}}</td>
-                                <td class="px-6 py-4">{{date_created}}</td>
-                                <td class="px-6 py-4">$15.00</td>
-                            </tr>
+                            {{#each sale.sale_products as |saleProducts|}}  
+                            {{#each sale.products as |product|}} 
+                            
+                            
+                            {{#unless @../index}} 
+                             
+                                {{!-- {{#each sale.products as |product|}} --}}
+                                 <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                                    <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap 
+                                    dark:text-white">{{sale.id}}</td>
+                                    <td class="px-6 py-4">{{saleProducts.quantity}}</td>
+                                    <td class="px-6 py-4">{{sale.date_created}}</td>                                     
+                                     <td class="px-6 py-4">{{product.product_name}}</td> 
+                                     <td class="px-6 py-4">{{product.price}}$</td>
+                                    
+                                 </tr>
+                            {{/unless}}
+                             
+                            {{/each}}
                             {{/each}}
                         </tbody>
                         </table>
@@ -106,5 +116,13 @@
                 </div> -->
             </div>
         </div>
+        <script type="text/javascript"> 
+                Handlebars.registerHelper('areEqual', function (value, value2) {
+                console.log(value)
+                console.log(value2)
+                return value == value2;
+                
+                });
+        </script>
 </body>
 </html>
