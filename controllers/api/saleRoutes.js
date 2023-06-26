@@ -5,6 +5,7 @@ const { Sale } = require('../../models');
 // CRUD Operations
 
 // Get All
+/*
 router.get('/', async (req, res) => {
     try{
         const saleData = await Sale.findAll(
@@ -28,14 +29,13 @@ router.get('/:id', async (req, res) => {
         res.status(500).json(err);
     }
 });
-
+*/
 // Create Sale
 router.post('/', async (req, res) => {
     try{
         const newSale = await Sale.create({
             user_id: req.session.user_id,
-            client_id: req.body.client_id,
-            date_created: req.body.date_created
+            client_id: req.body.client_id
         });
     } catch (err) {
         res.status(500).json(err);
