@@ -83,5 +83,18 @@ router.get('/sales',withAuth ,async (req,res)=>{
     }
 })
 
+router.get('/products',withAuth ,async (req,res)=>{   
+    try{
+        const productData = await Product.findAll();
+        const products = productData.map((singleProduct) => singleProduct.get({ plain: true }));
 
+        res.render('products',
+        {
+            loggedIn: req.session.loggedIn,
+            products
+        })
+    } catch(err){
+        res.status(400).json(err)
+    }
+})
 module.exports = router;
