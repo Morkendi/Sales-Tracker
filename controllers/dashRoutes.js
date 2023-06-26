@@ -53,25 +53,17 @@ router.get('/dashboard',withAuth ,async (req,res)=>{
         })
     
         const sales = sale.map((singleSale) => singleSale.get({ plain: true }));
-        //const seils = sales.map((seil)=> seil.get({}))
 
-        /*const search = await SaleProduct.findAll({
-            include: { 
-                model: Product,
-                foreignKey: "product_id",
-                attributes: ['product_name','price']}
-        })*/
+        const client = await Client.findAll()
 
-        //const searches = search.map((singleSale) => singleSale.get({ plain: true }));
-        //const saleInfo = sale.sale_products.map((ola)=> ola.get({}))
-
-        //console.log(searches)
+        const clients = client.map((eachclient) => eachclient.get({plain: true}))
+      
         console.log(sales)
-
-       // console.log(saleInfo)
+        console.log(clients)
 
         res.render('dashboard',
         {
+            clients,
             sales,
             loggedIn: req.session.loggedIn
         })
