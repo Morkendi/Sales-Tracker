@@ -26,4 +26,14 @@ Product.belongsToMany(Sale, {
 Client.hasMany(Sale, {
   foreignKey: 'client_id',
 });
+
+Sale.hasMany(SaleProduct,{
+  foreignKey: "sale_id"
+})
+
+SaleProduct.belongsTo(Sale, {
+  foreignKey: "sale_id"
+})
+
+
 module.exports = { User, Sale, Client, Product, SaleProduct };

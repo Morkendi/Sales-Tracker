@@ -5,7 +5,6 @@ const loginFormHandler = async (event) => {
     const password = document.getElementById('password-login').value.trim();
  
     if (email && password) {
-      
       const response = await fetch('/api/users/login', {
         method: 'POST',
         body: JSON.stringify({ email, password }),
@@ -14,6 +13,7 @@ const loginFormHandler = async (event) => {
   
       if (response.ok) {
         document.location.replace('/dashboard');
+
       } else {
         alert('unable to login');
       }
@@ -21,7 +21,7 @@ const loginFormHandler = async (event) => {
   };
   
   
-document.getElementById('login').addEventListener('click', loginFormHandler);
+document.getElementById('loginForm').addEventListener('submit', loginFormHandler);
   
 
   
