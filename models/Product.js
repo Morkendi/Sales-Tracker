@@ -24,6 +24,10 @@ Product.init(
           msg: 'Price must be a valid decimal with a maximum of 10 digits and 2 decimal places.',
         },
       },
+    },
+    url:{
+      type: DataTypes.STRING,
+      allowNull: false,
     }
   },
   {
