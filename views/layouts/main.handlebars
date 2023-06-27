@@ -23,9 +23,11 @@
                     <li>
                         <img src="/assets/icons/home.svg" class="h-6 mr-3" alt="Home Logo" /><a class="text-white hover:text-red-400" href="/dashboard">Dashboard</a>
                     </li>
+                    {{#if loggedIn}}
                     <li>
                         <img src="/assets/icons/contact.svg" class="h-6 mr-3" alt="Employee Logo" /><a class="text-white hover:text-red-400" href="/employee">{{name}}</a>
                     </li>
+                    {{/if}}
                     <li>
                         <img src="/assets/icons/boton-circular-plus.png" class=" h-6 mr-3" alt="Home Logo" /><a class="text-white hover:text-red-400" href="/sales">Sales History</a>
                     </li>
@@ -36,7 +38,7 @@
             </div>
             <div class="flex items-center gap-6">
                 {{#if loggedIn}}
-                <a href="/login"><button class="bg-gradient-to-r from-rose-400 to-orange-300 text-white px-5 py-2 rounded-full hover:bg-[#87acec]">Log Out</button></a>
+                <a href="/login"><button class="bg-gradient-to-r from-rose-400 to-orange-300 text-white px-5 py-2 rounded-full hover:bg-[#87acec]" id="logout">Log Out</button></a>
                 {{else}}
                  <a href="/login"><button class="bg-gradient-to-r from-rose-400 to-orange-300 text-white px-5 py-2 rounded-full hover:bg-[#87acec]">Log in</button></a>
                  {{/if}}
