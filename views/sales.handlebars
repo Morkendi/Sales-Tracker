@@ -1,4 +1,4 @@
-    <div class="p-6">
+   <div class="p-16">
         
         <div class="text-3xl font-bold text-black "> Sales History </div>     
         <div class="relative overflow-x-auto pt-3 shadow-md sm:rounded-lg">
@@ -15,7 +15,8 @@
                 </thead>
                 <tbody>
                     {{#each sales as |sale|}}
-                    {{#each sale.products as |product|}} 
+                      {{#each sale.products as |product|}} 
+                                {{!-- {{#each sale.products as |product|}} --}}
                                 <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                                 <td class="px-6 py-4">{{sale.id}}</td>
                                 <td class="px-6 py-4">{{product.product_name}}</td>
@@ -27,12 +28,13 @@
                             
                         {{/each}} 
                         {{/each}} 
+
                 </tbody>
                 </table>
         </div>
     </div>
-    <div class="flex flex-row">
-        <div class="p-6">
+    <div class="flex p-7 flex-row">
+        <div class="p-7">
             <div class="text-3xl font-bold text-black"> Best Month </div>  
             <div class="text-lg font-bold pt-8 text-center  text-black tp-2"> May 2023 </div>  
         </div>
@@ -52,12 +54,12 @@
                             dark:text-white">$200.00</td>
                             <td class="px-6 py-4">June</td>
                     </tr>
-                    <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                     <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                             <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap 
                             dark:text-white">$650.00</td>
                             <td class="px-6 py-4">May</td>
                     </tr>
-                    <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                     <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                             <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap 
                             dark:text-white">$200.00</td>
                             <td class="px-6 py-4">April</td>
