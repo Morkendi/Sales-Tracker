@@ -87,12 +87,16 @@
                         <tbody>
                             
                             {{#each sale.products as |product|}} 
+                            
                             {{#each sale.sale_products as |saleProducts|}}
                             
-                            
-                             {{@index}} {{@../index}}
+                
+                            {{@index}} {{@../index}}
+                               
+
+
  
-                            {{#if @../last}}   
+                            {{#if (areEqual {@index} {@../index})}}   
                                 {{!-- {{#each sale.products as |product|}} --}}
                                 <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                                 <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
@@ -138,11 +142,4 @@
                 </div> -->
             </div>
 
-        {{!-- <script type="text/javascript"> 
-                Handlebars.registerHelper('areEqual', (value, value2)=>{
-                console.log(value)
-                console.log(value2)
-                return value == value2;
-                });
-        </script> --}}
         <script src="/js/dashboard.js"></script>

@@ -19,6 +19,12 @@ hbs.handlebars.registerHelper('multiply', function(a, b) {
   return a * b;
 });
 
+hbs.handlebars.registerHelper('areEqual', (value, value2)=>{
+  console.log(value)
+  console.log(value2)
+  return value == value2;
+})
+
 const sess = {
   secret: 'Super secret secret',
   cookie: {},
