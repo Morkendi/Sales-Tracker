@@ -65,7 +65,8 @@ router.get('/dashboard',withAuth ,async (req,res)=>{
         {
             clients,
             sales,
-            loggedIn: req.session.loggedIn
+            loggedIn: req.session.loggedIn,
+            name: req.session.name 
         })
     } catch(err){
         res.status(400).json(err)
@@ -76,7 +77,8 @@ router.get('/sales',withAuth ,async (req,res)=>{
     try{
         res.render('sales',
         {
-            loggedIn: req.session.loggedIn
+            loggedIn: req.session.loggedIn,
+            name: req.session.name 
         })
     } catch(err){
         res.status(400).json(err)
@@ -91,6 +93,7 @@ router.get('/products',withAuth ,async (req,res)=>{
         res.render('products',
         {
             loggedIn: req.session.loggedIn,
+            name: req.session.name, 
             products
         })
     } catch(err){
