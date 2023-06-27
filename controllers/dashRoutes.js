@@ -26,23 +26,6 @@ router.get('/login', async (req,res)=>{
     }
 })
 
-
-router.get('/loginform', async (req,res)=>{   
-    try{
-        res.render('loginform');
-    } catch(err){
-        res.status(400).json(err)
-    }
-})
-
-router.get('/loginform', async (req,res)=>{   
-    try{
-        res.render('loginform');
-    } catch(err){
-        res.status(400).json(err)
-    }
-})
-
 router.get('/dashboard',withAuth ,async (req,res)=>{   
     try{
         const sale = await Sale.findAll({
@@ -52,16 +35,16 @@ router.get('/dashboard',withAuth ,async (req,res)=>{
         include: [{
                 model: Client,
             },
-            {
-                model: SaleProduct,
-                foreignKey: "sale_id",
-                attributes: ['quantity','id'],
-                include: {
-                        model: Product,
-                        foreignKey: "sale_id",
-                        attributes: ['product_name','price']
-                }
-            },
+            // {
+            //     model: SaleProduct,
+            //     foreignKey: "sale_id",
+            //     attributes: ['quantity','id'],
+            //     include: {
+            //             model: Product,
+            //             foreignKey: "sale_id",
+            //             attributes: ['product_name','price']
+            //     }
+            // },
             {
             model: Product,
             through: SaleProduct,
@@ -91,7 +74,7 @@ router.get('/dashboard',withAuth ,async (req,res)=>{
 
 router.get('/sales',withAuth ,async (req,res)=>{   
     try{
-        /*const sale = await Sale.findAll({
+        const saleData = await Sale.findAll({
             where: {
                 user_id: req.session.user_id
             },
@@ -99,25 +82,17 @@ router.get('/sales',withAuth ,async (req,res)=>{
                 model: Client,
             },
             {
-                model: SaleProduct,
-                foreignKey: "sale_id",
-                attributes: ['quantity','id'],
-                include: {
-                        model: Product,
-                        foreignKey: "product_id",
-                        attributes: ['product_name','price']
-                }
-            },
-            {
             model: Product,
             through: SaleProduct,
             foreignKey: "sale_id",
             attributes: ['product_name','price']}]
-        })*/
+        })
 
+        const sales = saleData.map((singleSale) => singleSale.get({ plain: true }));
 
         res.render('sales',
         {
+            sales,
             loggedIn: req.session.loggedIn,
             name: req.session.name 
         })
