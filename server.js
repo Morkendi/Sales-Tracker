@@ -42,7 +42,7 @@ const hbs = exphbs.create({
 });
 
 const sess = {
-  secret: 'Super secret secret',
+  secret: CKIE_SCRT,
   cookie: {},
   resave: false,
   saveUninitialized: true,

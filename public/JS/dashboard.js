@@ -17,16 +17,16 @@ const newSaleHandler = async(event)=>{
     
     const client_id = document.getElementById('client_name').value.trim();
 
-    if (client_id) {
+    if(client_id){
       const response = await fetch('/api/sales/', {
         method: 'POST',
         body: JSON.stringify({client_id}),
         headers: { 'Content-Type': 'application/json' },
       });
       if (response.ok) {
-            document.location.replace('/dashboard');
-      } else {
-          alert('Failed to submit your sale');
+        document.location.reload();
+      } else {  
+        alert('Failed to submit your sale');
       }
       }
     };
@@ -52,15 +52,14 @@ const newOrderHandler= async (event)=>{
       parsedProdArr.push(parsedprod)
       parsedQuantArr.push(parsedquant)
     }
-    console.log(parsedProdArr)
-    console.log(parsedQuantArr)
+  
     let prod;
     let quant;
     if(product && quantity && sale_id){
       for(let i=0; i<parsedProdArr.length;i++){
       prod= parsedProdArr[i];
       quant = parsedQuantArr[i];
-       const response = await fetch('/api/saleProducts/', {
+      const response = await fetch('/api/saleProducts/', {
               method: 'POST',
               body: JSON.stringify({ prod, quant, sale_id}),
               headers: { 'Content-Type': 'application/json' },
