@@ -4,42 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="/CSS/style.css">
-    <title>SalesTrackerPro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
 </head>
-<body>
-    <div></div>
-    <aside class="flex flex-row items-start bg-black">
-        <div> 
-            <div class= "text-3xl font-bold justify-center text-white p-6"> Sales Tracker </div>
-        </div>
-        <div class="flex flex-col p-7"> 
-            <a href="/dashboard" class="text-lg flex flex-row font-sans justify-start text-white">
-                <img src="/assets/icons/home.svg" class="h-6 mr-3" alt="Home Logo" />
-                <span>Dashboard </span>
-            </a>
-            <a href="/employee" class="text-lg flex flex-row font-sans justify-start text-white">
-                <img src="/assets/icons/contact.svg" class="h-6 mr-3" alt="Employee Logo" />
-                <span>{{name}} </span>
-            </a>
-            <a href="/sales" class="text-lg flex flex-row font-sans justify-start text-white ">
-                <img src="/assets/icons/boton-circular-plus.png" class=" h-6 mr-3" alt="Home Logo" />
-                <span>Sales History </span>
-            </a>
-            <a href="/products" class="text-lg flex flex-row font-sans justify-start text-white">
-                <img src="/assets/icons/home.svg" class=" h-6 mr-3" alt="Home Logo" />
-                <span>Products </span>
-            </a>
-        </div>
-        {{#if loggedIn}} 
-        <div> 
-            <button class="text-lg font-bold flex justify-end text-white p-6" id="logout"> Log Out </button>
-        </div>
-        {{else}}
-        <div> 
-            <a href="/login"><button class="text-lg font-bold flex justify-end text-white p-6"> Log In </button></a>
-        </div>
-        {{/if}}
+<body class="font-[Poppins] bg-white bg-cover bg-center h-screen">
+    <header class="bg-black">
+        <nav class="flex justify-between items-center w-[92%]  mx-auto">
+            <div>
+                <img class="w-16 cursor-pointer" src="/images/Logo Habitual Corto.png" alt="...">
+            </div>
+            <div
+                class="nav-links duration-500 md:static absolute bg-black md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto  w-full flex items-center px-5">
+                <ul class="inline-flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8">
+                    <li>
+                        <img src="/assets/icons/home.svg" class="h-6 mr-3" alt="Home Logo" /><a class="text-white hover:text-red-400" href="#">Dashboard</a>
+                    </li>
+                    <li>
+                        <img src="/assets/icons/contact.svg" class="h-6 mr-3" alt="Employee Logo" /><a class="text-white hover:text-red-400" href="#">User</a>
+                    </li>
+                    <li>
+                        <img src="/assets/icons/boton-circular-plus.png" class=" h-6 mr-3" alt="Home Logo" /><a class="text-white hover:text-red-400" href="#">Sales History</a>
+                    </li>
+                    <li>
+                        <img src="/assets/icons/home.svg" class=" h-6 mr-3" alt="Home Logo" /><a class="text-white hover:text-red-400" href="#">Products</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="flex items-center gap-6">
+                {{#if loggedIn}}
+                <a href="/login"><button class="bg-gradient-to-r from-rose-400 to-orange-300 text-white px-5 py-2 rounded-full hover:bg-[#87acec]">Log Out</button></a>
+                {{else}}
+                 <a href="/login"><button class="bg-gradient-to-r from-rose-400 to-orange-300 text-white px-5 py-2 rounded-full hover:bg-[#87acec]">Log in</button></a>
+                 {{/if}}
+                <ion-icon onclick="onToggleMenu(this)" name="menu" class="text-3xl cursor-pointer md:hidden"></ion-icon>
+            </div>
+            
+    </header>
+
+    
+    <script>
+        const navLinks = document.querySelector('.nav-links')
+        function onToggleMenu(e){
+            e.name = e.name === 'menu' ? 'close' : 'menu'
+            navLinks.classList.toggle('top-[9%]')
+        }
+    </script>
+
+</body>
+
     </aside>
     <main>
         {{{body}}}
@@ -48,6 +63,5 @@
     <script src="/js/logout.js"></script>
     {{/if}}
     <script src="./js/index.js"></script>
-</body>
 
 </html>
