@@ -40,8 +40,8 @@
                 {{#if loggedIn}}
                 <a href="/login"><button class="bg-gradient-to-r from-rose-400 to-orange-300 text-white px-5 py-2 rounded-full hover:bg-[#87acec]" id="logout">Log Out</button></a>
                 {{else}}
-                 <a href="/login"><button class="bg-gradient-to-r from-rose-400 to-orange-300 text-white px-5 py-2 rounded-full hover:bg-[#87acec]">Log in</button></a>
-                 {{/if}}
+                <a href="/login"><button class="bg-gradient-to-r from-rose-400 to-orange-300 text-white px-5 py-2 rounded-full hover:bg-[#87acec]">Log in</button></a>
+                {{/if}}
                 <ion-icon onclick="onToggleMenu(this)" name="menu" class="text-3xl cursor-pointer md:hidden"></ion-icon>
             </div>
             
@@ -63,8 +63,6 @@
         {{{body}}}
     </main>
     {{#if loggedIn}}
-    <script src="/js/logout.js"></script>
+    <script src="../../public/js/logout.js"></script>
     {{/if}}
-    <script src="./js/index.js"></script>
-
 </html>
