@@ -92,9 +92,11 @@
                         </thead>
 
                         <tbody>
-                             
+                            
+                            {{#each sale.products as |product|}} 
                             {{#each sale.sale_products as |saleProducts|}}
-                            {{#each sale.products as |product|}}  
+                            
+                             
 
                             {{#if @../last}}   
                                 {{!-- {{#each sale.products as |product|}} --}}
@@ -102,7 +104,8 @@
                                     <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap 
                                     dark:text-white">{{saleProducts.id}}</td>
                                     <td class="px-6 py-4">{{saleProducts.quantity}}</td>
-                                    <td class="px-6 py-4">{{sale.date_created}}</td>                           
+                                    <td class="px-6 py-4">{{sale.date_created}}</td>  
+                                                             
                                     <td class="px-6 py-4"> {{product.product_name}}</td>  
                                     <td class="px-6 py-4">{{product.price}}$</td>       
                                 </tr>

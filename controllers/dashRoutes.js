@@ -75,6 +75,31 @@ router.get('/dashboard',withAuth ,async (req,res)=>{
 
 router.get('/sales',withAuth ,async (req,res)=>{   
     try{
+        /*const sale = await Sale.findAll({
+            where: {
+                user_id: req.session.user_id
+            },
+        include: [{
+                model: Client,
+            },
+            {
+                model: SaleProduct,
+                foreignKey: "sale_id",
+                attributes: ['quantity','id'],
+                include: {
+                        model: Product,
+                        foreignKey: "product_id",
+                        attributes: ['product_name','price']
+                }
+            },
+            {
+            model: Product,
+            through: SaleProduct,
+            foreignKey: "sale_id",
+            attributes: ['product_name','price']}]
+        })*/
+
+
         res.render('sales',
         {
             loggedIn: req.session.loggedIn,
