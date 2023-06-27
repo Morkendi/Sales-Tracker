@@ -58,7 +58,7 @@ router.get('/dashboard',withAuth ,async (req,res)=>{
                 attributes: ['quantity','id'],
                 include: {
                         model: Product,
-                        foreignKey: "product_id",
+                        foreignKey: "sale_id",
                         attributes: ['product_name','price']
                 }
             },
@@ -75,7 +75,8 @@ router.get('/dashboard',withAuth ,async (req,res)=>{
 
         const clients = client.map((eachclient) => eachclient.get({plain: true}))
 
-
+        console.log(sales)
+         //res.status(200).json(sales)
         res.render('dashboard',
         {
             clients,
@@ -152,6 +153,7 @@ router.get('/employee', withAuth, async (req,res)=>{
         res.render('employee',
         {
             loggedIn: req.session.loggedIn,
+            name: req.session.name, 
             employees
         })
     } catch(err) {

@@ -19,6 +19,10 @@ hbs.handlebars.registerHelper('multiply', function(a, b) {
   return a * b;
 });
 
+hbs.handlebars.registerHelper('areEqual', (value, value2)=>{
+  return value === value2;
+})
+
 const sess = {
   secret: 'Super secret secret',
   cookie: {},
@@ -40,6 +44,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
 
-sequelize.sync({ force: true }).then(() => {
+sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Server listening on: http://localhost:' + PORT));
 });
