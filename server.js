@@ -12,16 +12,36 @@ const PORT = process.env.PORT || 3001;
 const hbs = exphbs.create({
   // Set your handlebars configuration options here
   // ...
+  helpers: {
+    multiply: function(a, b) {
+      return a * b;
+    },
+    areEqual: function(value, value2) {
+      return value === value2;
+    },
+    calculateTotalSales: function(sales) {
+      let totalSales = 0;
+      sales.forEach((sale) => {
+        totalSales += sale.products.reduce((sum, product) => sum + (product.sale_product.quantity * product.price), 0);
+      });
+      return totalSales.toFixed(2); // Assuming you want to display the total with 2 decimal places
+    },
+    getDate: function() {
+      const months = ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"];
+      const currentDate = new Date().getMonth();
+      const currentMonth = months[currentDate];
+      return currentMonth;
+    },
+    calculateCom: function(sales) {
+      let totalSales = 0;
+      sales.forEach((sale) => {
+        totalSales += sale.products.reduce((sum, product) => sum + (product.sale_product.quantity * product.price), 0);
+        comis = totalSales*0.12;
+      });
+      return comis.toFixed(2); // Assuming you want to display the total with 2 decimal places
+    },
+  }
 });
-
-// Register the multiply helper
-hbs.handlebars.registerHelper('multiply', function(a, b) {
-  return a * b;
-});
-
-hbs.handlebars.registerHelper('areEqual', (value, value2)=>{
-  return value === value2;
-})
 
 const sess = {
   secret: 'Super secret secret',
