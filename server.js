@@ -6,6 +6,7 @@ const routes = require('./controllers');
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
+
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -13,33 +14,29 @@ const hbs = exphbs.create({
   // Set your handlebars configuration options here
   // ...
   helpers: {
-    multiply: function(a, b) {
-      return a * b;
-    },
-    areEqual: function(value, value2) {
-      return value === value2;
-    },
+    multiply: _.multiply, // Use lodash's multiply function
+    areEqual: _.isEqual, // Use lodash's isEqual function
     calculateTotalSales: function(sales) {
-      let totalSales = 0;
-      sales.forEach((sale) => {
-        totalSales += sale.products.reduce((sum, product) => sum + (product.sale_product.quantity * product.price), 0);
-      });
-      return totalSales.toFixed(2); // Assuming you want to display the total with 2 decimal places
+      const totalSales = _.sumBy(sales, (sale) =>
+        _.sumBy(sale.products, (product) =>
+          _.multiply(product.sale_product.quantity, product.price)
+        )
+      );
+      return _.round(totalSales, 2); // Use lodash's round function
     },
     getDate: function() {
       const months = ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"];
-      const currentDate = new Date().getMonth();
-      const currentMonth = months[currentDate];
+      const currentMonth = _.nth(months, new Date().getMonth()); // Use lodash's nth function
       return currentMonth;
     },
     calculateCom: function(sales) {
-      let totalSales = 0;
-      let commisions = 0;
-      sales.forEach((sale) => {
-        totalSales += sale.products.reduce((sum, product) => sum + (product.sale_product.quantity * product.price), 0);
-        commisions = totalSales*0.12;
-      });
-      return commisions.toFixed(2); // Assuming you want to display the total with 2 decimal places
+      const totalSales = _.sumBy(sales, (sale) =>
+        _.sumBy(sale.products, (product) =>
+          _.multiply(product.sale_product.quantity, product.price)
+        )
+      );
+      const commisions = _.multiply(totalSales, 0.12);
+      return _.round(commisions, 2); // Use lodash's round function
     },
   }
 });
