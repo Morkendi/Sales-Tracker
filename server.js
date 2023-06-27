@@ -34,11 +34,12 @@ const hbs = exphbs.create({
     },
     calculateCom: function(sales) {
       let totalSales = 0;
+      let commisions = 0;
       sales.forEach((sale) => {
         totalSales += sale.products.reduce((sum, product) => sum + (product.sale_product.quantity * product.price), 0);
-        comis = totalSales*0.12;
+        commisions = totalSales*0.12;
       });
-      return comis.toFixed(2); // Assuming you want to display the total with 2 decimal places
+      return commisions.toFixed(2); // Assuming you want to display the total with 2 decimal places
     },
   }
 });
