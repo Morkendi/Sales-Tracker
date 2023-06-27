@@ -24,7 +24,7 @@
                 <div class="text-3xl font-bold text-black p-4"> New Sale </div>  
                 <div class="bg-gray-400 w-64  shadow-xl rounded-xl flex flex-col">
                     <div class="pl-4" >
-                         <label for="user" class="block mb-2 text-lg font-bold text-gray-900 dark:text-white pt-3 ">User</label>
+                        <label for="user" class="block mb-2 text-lg font-bold text-gray-900 dark:text-white pt-3 ">User</label>
                         <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-11/12 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" id = "myList" onchange = "listPicker()" >   
                             {{#each clients as |client|}} 
                             <option data-id="{{id}}"> {{client_name}} </option>  
@@ -35,7 +35,7 @@
                     </div>
                     <button class="text-center rounded-md bg-slate-800 text-white my-2 mx-4 py-2" id="newSale">Submit Sale</button>
                 </div>
-                 {{!-- Insert New order --}}
+                {{!-- Insert New order --}}
         <div>  
             <div class="text-3xl font-bold text-black p-4"> New Order </div>  
             <div class="bg-gray-400 w-64 h-120 shadow-xl rounded-xl flex flex-col">
@@ -47,7 +47,6 @@
                     <label for="quantity" class="block mb-2 text-lg font-bold text-gray-900 dark:text-white pt-3 ">Quantity</label>
                     <input type="text" id="quantity" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-11/12 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="5" required>
                 </div>
-              
                 <div class="pl-4" >
                     <label for="quantity" class="block mb-2 text-lg font-bold text-gray-900 dark:text-white pt-3 ">Sale Order</label>
                         <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-11/12 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" id = "mySaleList" onchange = "salePicker()" >   
@@ -63,8 +62,8 @@
         </div>
     </div>
         {{!-- Sales History Section --}}
-         <div class="flex flex-row pl-6"> 
-             <div>
+        <div class="flex flex-row pl-6"> 
+            <div>
                 {{#each sales as |sale|}}
                 <div class="text-3xl font-bold text-black p-4">Sales History {{id}} </div>
                     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -80,7 +79,7 @@
                         </thead>
                         <tbody>
                             
-                         {{#each sale.products as |product|}} 
+                        {{#each sale.products as |product|}} 
 
                                 <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                                 <td class="px-6 py-4">{{product.product_name}}</td>
@@ -96,7 +95,7 @@
                     </div>
                     {{/each}}
             </div>
-         </div>
+        </div>
     </div>
 
-    <script src="/js/dashboard.js"></script>
+    <script src="../public/js/dashboard.js"></script>
