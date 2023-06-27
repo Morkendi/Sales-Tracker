@@ -32,7 +32,7 @@ router.get('/dashboard',withAuth ,async (req,res)=>{
             where: {
                 user_id: req.session.user_id
             },
-           include: [{
+        include: [{
                 model: Client,
             },
             {
@@ -57,7 +57,7 @@ router.get('/dashboard',withAuth ,async (req,res)=>{
         const client = await Client.findAll()
 
         const clients = client.map((eachclient) => eachclient.get({plain: true}))
-      
+
         console.log(sales)
         console.log(clients)
 
@@ -97,4 +97,23 @@ router.get('/products',withAuth ,async (req,res)=>{
         res.status(400).json(err)
     }
 })
+
+router.get('/employee', withAuth, async (req,res)=>{
+    try{
+        const employeeData= await User.findAll({
+            where: {
+                id: req.session.user_id
+            }})
+
+        const employees = employeeData.map((singleEmployee) => singleEmployee.get({ plain: true }));
+        res.render('employee',
+        {
+            loggedIn: req.session.loggedIn,
+            employees
+        })
+    } catch(err) {
+        res.status(400).json(err)
+    }
+})
+
 module.exports = router;
