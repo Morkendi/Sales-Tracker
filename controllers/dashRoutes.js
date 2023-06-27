@@ -75,7 +75,8 @@ router.get('/dashboard',withAuth ,async (req,res)=>{
 
         const clients = client.map((eachclient) => eachclient.get({plain: true}))
 
-
+        console.log(sales)
+       // res.status(200).json(sales)
         res.render('dashboard',
         {
             clients,

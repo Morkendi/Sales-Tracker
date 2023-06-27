@@ -87,8 +87,9 @@
                             {{#each sale.products as |product|}} 
                             {{#each sale.sale_products as |saleProducts|}}
                             
-                             
-
+                            
+                             {{@index}} {{@../index}}
+ 
                             {{#if @../last}}   
                                 {{!-- {{#each sale.products as |product|}} --}}
                                 <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
