@@ -1,19 +1,65 @@
-<div class="mt-12 mx-80 border rounded-md border-gray-400 "> 
-    <h2 class="px-4 py-2 text-center bg-amber-400 rounded-t-md">Sign In</h2>
-    <form id="loginForm" class="px-5 py-2">
-      <div class="flex flex-col">
-        <label for="email-login">Email:</label>
-        <input class="form-input border  border-slate-400 rounded-md" type="text" id="email-login"/>
+<!--
+  This example requires some changes to your config:
+  
+  ```
+  // tailwind.config.js
+  module.exports = {
+    // ...
+    plugins: [
+      // ...
+      require('@tailwindcss/forms'),
+    ],
+  }
+  ```
+-->
+<!--
+  This example requires updating your template:
+
+  ```
+  <html class="h-full bg-white">
+  <body class="h-full">
+  ```
+-->
+{{!-- <div class="flex min-h-full flex-col justify-center px-6 py-12 bg-white rounded-md"> --}}
+<div class="custom-form my-12 w-96 p-6 shadow-lg bg-white rounded-md">
+  <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+    <img class="mx-auto h-20 w-48" src="/images/logo.png" alt="SalestrackLogo">
+        <h2 class="px-4 py-2 text-center text-lg font-bold leading-9 tracking-tight text-gray-900 bg-gradient-to-r from-rose-400 to-orange-300 rounded-t-md">Inicio de Sesión</h2>
+    {{!-- <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Sign in to your account</h2> --}}
+    {{!-- "px-4 py-2 text-center bg-amber-400 rounded-t-md" file classmate--}}
+  </div>
+
+  <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+    <form id="loginForm" class="space-y-6" action="#" method="POST">
+      <div>
+        <label for="email" class="block text-base font-medium leading-6 text-gray-900">Correo Electrónico</label>
+        <div class="mt-2">
+          <input id="email-login" name="email" type="email" autocomplete="email" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+        </div>
       </div>
-      <div class="flex flex-col">
-        <label for="password-login">Password:</label>
-        <input class="form-input border border-slate-400 rounded-md" type="password" id="password-login" />
+
+      <div>
+        <div class="flex items-center justify-between">
+          <label for="password" class="block text-base font-medium leading-6 text-gray-900">Contraseña</label>
+          <div class="text-sm">
+            <a href="#" class="font-semibold text-orange-600 hover:text-red-400">Olvidé Contraseña</a>
+          </div>
+        </div>
+        <div class="mt-2">
+          <input id="password-login" name="password" type="password" autocomplete="current-password" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+        </div>
       </div>
-      <div class="form-group text-center py-2 flex flex-col">
-        <button class=" bg-amber-400 text-center rounded-md" type="submit" id="login">login</button>
+
+      <div>
+        <button type="submit" class="flex w-full justify-center rounded-md bg-gradient-to-r from-rose-400 to-orange-300 px-3 py-1.5 text-lg font-semibold leading-6 text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign in</button>
       </div>
     </form>
-  
+{{!-- 
+    <p class="mt-10 text-center text-sm text-gray-500">
+      Not a member?
+      <a href="#" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">Start a 14 day free trial</a>
+    </p> --}}
+  </div>
 </div>
+
 <script src="/js/login.js"></script>
-</body>
