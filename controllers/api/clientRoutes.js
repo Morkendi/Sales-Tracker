@@ -4,35 +4,6 @@ const { Client } = require("../../models");
 
 // CRUD Operations
 
-// Get All
-router.get("/", async (req, res) => {
-  try {
-    const clientData = await Client.findAll(
-    // TODO: Add associated models (If any)
-
-    );
-    clientData
-      ? res.status(200).json(clientData)
-      : res.status(404).json({ message: "No clients found!" });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-// Get by ID
-router.get("/:id", async (req, res) => {
-  try {
-    const singleClient = await Client.findByPk(req.params.id, {
-      // TODO: Add associated models (If any)
-    });
-    singleClient
-      ? res.status(200).json(clientData)
-      : res.status(404).json({ message: "No client found!" });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
 // Create Client
 router.post("/", async (req, res) => {
   try {

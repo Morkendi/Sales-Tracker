@@ -3,35 +3,6 @@ const router = require('express').Router();
 const { SaleProduct } = require('../../models');
 // CRUD Operations
 
-// Get All
-/*
-router.get('/', async (req, res) => {
-    try{
-        const SaleProductData = await SaleProduct.findAll(
-            // TODO: Add associated models (If any)
-        );
-        SaleProductData
-            ? res.status(200).json(SaleProductData)
-            : res.status(404).json({ message: "No sale products found!" });
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
-
-// Get by ID
-router.get('/:id', async (req, res) => {
-    try{
-        const singleSaleProduct = await SaleProduct.findByPk(req.params.id, {
-            // TODO: Add associated models (If any)
-        });
-        singleSaleProduct
-            ? res.status(200).json(singleSaleProduct)
-            : res.status(404).json({ message: "No sale product found!" });
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
-*/
 // Create SaleProduct
 router.post('/', async (req, res) => {
     try{

@@ -10,7 +10,8 @@ router.get('/', async (req,res)=>{
     try{
         res.render('homepage',
         {
-            loggedIn: req.session.loggedIn
+            loggedIn: req.session.loggedIn,
+            user_id: req.session.user_id
         })
     } catch(err){
         res.status(400).json(err)
@@ -35,16 +36,6 @@ router.get('/dashboard',withAuth ,async (req,res)=>{
         include: [{
                 model: Client,
             },
-            // {
-            //     model: SaleProduct,
-            //     foreignKey: "sale_id",
-            //     attributes: ['quantity','id'],
-            //     include: {
-            //             model: Product,
-            //             foreignKey: "sale_id",
-            //             attributes: ['product_name','price']
-            //     }
-            // },
             {
             model: Product,
             through: SaleProduct,
@@ -57,15 +48,14 @@ router.get('/dashboard',withAuth ,async (req,res)=>{
         const client = await Client.findAll()
 
         const clients = client.map((eachclient) => eachclient.get({plain: true}))
-
-        console.log(sales)
-         //res.status(200).json(sales)
+        
         res.render('dashboard',
         {
             clients,
             sales,
             loggedIn: req.session.loggedIn,
-            loggedUsername: req.session.name 
+            loggedUsername: req.session.name,
+            user_id: req.session.user_id 
         })
     } catch(err){
         res.status(400).json(err)
@@ -94,7 +84,8 @@ router.get('/sales',withAuth ,async (req,res)=>{
         {
             sales,
             loggedIn: req.session.loggedIn,
-            loggedUsername: req.session.name 
+            loggedUsername: req.session.name,
+            user_id: req.session.user_id 
         })
     } catch(err){
         res.status(400).json(err)
@@ -110,26 +101,27 @@ router.get('/products',withAuth ,async (req,res)=>{
         {
             loggedIn: req.session.loggedIn,
             loggedUsername: req.session.name, 
-            products
+            products,
+            user_id: req.session.user_id
         })
     } catch(err){
         res.status(400).json(err)
     }
 })
 
-router.get('/employee', withAuth, async (req,res)=>{
+router.get('/employee/:id', withAuth, async (req,res)=>{
     try{
-        const employeeData= await User.findAll({
-            where: {
-                id: req.session.user_id
-            }})
+        const employeeData= await User.findByPk(req.params.id)
 
-        const employees = employeeData.map((singleEmployee) => singleEmployee.get({ plain: true }));
+        const employee = employeeData.get({ plain: true });
+
+        console.log(employee)
         res.render('employee',
         {
             loggedIn: req.session.loggedIn,
             loggedUsername: req.session.name, 
-            employees
+            employee,
+            user_id: req.session.user_id
         })
     } catch(err) {
         res.status(400).json(err)

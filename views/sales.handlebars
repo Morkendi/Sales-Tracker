@@ -16,7 +16,6 @@
                 <tbody>
                     {{#each sales as |sale|}}
                       {{#each sale.products as |product|}} 
-                                {{!-- {{#each sale.products as |product|}} --}}
                                 <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                                 <td class="px-6 py-4">{{sale.id}}</td>
                                 <td class="px-6 py-4">{{product.product_name}}</td>
@@ -28,22 +27,6 @@
                             
                         {{/each}} 
                         {{/each}} 
-                    {{!-- <tr>
-                        <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">2</td>
-                        <td class="px-6 py-4">Reishi extract</td>
-                        <td class="px-6 py-4">5</td>
-                        <td class="px-6 py-4">10-06-2022</td>
-                        <td class="px-6 py-4">$25.00</td>
-                        <td class="px-6 py-4">Yuleth Aceves</td>
-                    </tr>
-                    <tr  class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                        <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">3</td>
-                        <td class="px-6 py-4">Lion's Mane extract</td>
-                        <td class="px-6 py-4">5</td>
-                        <td class="px-6 py-4">11-06-2022</td>
-                        <td class="px-6 py-4">$50.00</td>
-                        <td class="px-6 py-4">Alejandro Salazar</td>
-                    </tr> --}}
                 </tbody>
                 </table>
         </div>
