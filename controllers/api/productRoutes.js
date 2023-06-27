@@ -4,34 +4,6 @@ const { Product } = require('../../models');
 
 // CRUD Operations
 
-// Get All
-router.get("/", async (req, res) => {
-    try {
-    const ProductData = await Product.findAll(
-        // TODO: Add associated models (If any)
-    );
-    ProductData
-        ? res.status(200).json(ProductData)
-        : res.status(404).json({ message: "No products found!" });
-    } catch (err) {
-    res.status(500).json(err);
-    }
-});
-
-// Get by ID
-router.get('/:id', async (req, res) => {
-    try{
-        const singleProduct = await Product.findByPk(req.params.id, {
-            // TODO: Add associated models (If any)
-        });
-        singleProduct
-            ? res.status(200).json(singleProduct)
-            : res.status(404).json({ message: "No product found!" });
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
-
 // Create Product
 router.post('/', async (req, res) => {
     try{

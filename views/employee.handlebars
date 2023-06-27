@@ -1,12 +1,12 @@
     
 <div class="flex justify-center p-12">
-     {{#each employees as |employee|}} 
+    {{#with employee}}
      <div class="flex flex-col justify-center max-w-xs p-6 shadow-md rounded-xl sm:px-12 dark:bg-gray-900 dark:text-gray-100" style="-webkit-user-select: auto;">
          <img src="https://ca.slack-edge.com/T04HLBJJKGX-U04Q170QRK9-e50c55e14df7-512" alt="" class="w-32 h-32 mx-auto rounded-full dark:bg-gray-500 aspect-square" style="-webkit-user-select: auto;">
          <div class="space-y-4 text-center divide-y divide-gray-700" style="-webkit-user-select: auto;">
              <div class="my-2 space-y-1" style="-webkit-user-select: auto;">
                  {{!-- <h2 class="text-xl font-semibold sm:text-2xl" style="-webkit-user-select: auto;">{{name}} </h2> --}}
-                 <h2 class="text-xl font-semibold sm:text-2xl" style="-webkit-user-select: auto;">{{name}} </h2>
+                 <h2 class="text-xl font-semibold sm:text-2xl" style="-webkit-user-select: auto;">{{name}}</h2>
                  <p class="px-5 text-xs sm:text-base dark:text-gray-400" style="-webkit-user-select: auto;">Full-stack developer</p>
              </div>
              <div class="flex justify-center pt-2 space-x-4 align-center" style="-webkit-user-select: auto;">
@@ -45,7 +45,7 @@
            <button class="text-center rounded-lg bg-slate-400 text-white p-1 hover:bg-slate-500" id="newSale">Edit profile </button>
          </div>
      </div>
-     {{/each}}
+     {{/with}}
  </div>
 
 

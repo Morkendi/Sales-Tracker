@@ -31,7 +31,6 @@
                             {{/each}} 
                         </select>
                         <label for="client" class="block mb-2 text-lg font-bold text-gray-900 dark:text-white pt-3 ">Client</label>
-                        <!-- Pending: define id of Client name -->
                         <input type="text" id="client_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-11/12 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Restaurante Hueso" required>
                     </div>
                     <button class="text-center rounded-md bg-slate-800 text-white my-2 mx-4 py-2" id="newSale">Submit Sale</button>
@@ -42,18 +41,13 @@
             <div class="bg-gray-400 w-64 h-120 shadow-xl rounded-xl flex flex-col">
                 <div class="pl-4" >
                     <label for="product_name" class="block mb-1 text-lg font-bold text-gray-900 dark:text-white pt-3 tp-2">Product</label>
-                    <!-- Pending: define id of product -->
                     <input type="text" id="product" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-11/12 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Pink Oyster Mushroom" required>
                 </div>
                 <div class="pl-4" >
                     <label for="quantity" class="block mb-2 text-lg font-bold text-gray-900 dark:text-white pt-3 ">Quantity</label>
-                    <!-- Pending: define id of Quantity -->
                     <input type="text" id="quantity" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-11/12 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="5" required>
                 </div>
-                {{!-- <div class="pl-4" >
-                    <label for="date" class="block mb-2 text-lg font-bold text-gray-900 dark:text-white pt-3">Date</label>
-                    <input type="text" id="date_order" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-11/12 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="21-06-2022" required>
-                </div> --}}
+              
                 <div class="pl-4" >
                     <label for="quantity" class="block mb-2 text-lg font-bold text-gray-900 dark:text-white pt-3 ">Sale Order</label>
                         <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-11/12 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" id = "mySaleList" onchange = "salePicker()" >   
@@ -88,9 +82,6 @@
                             
                          {{#each sale.products as |product|}} 
 
-                            
-                
-                                {{!-- {{#each sale.products as |product|}} --}}
                                 <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                                 <td class="px-6 py-4">{{product.product_name}}</td>
                                 <td class="px-6 py-4">{{sale.date_created}}</td>
@@ -107,38 +98,5 @@
             </div>
          </div>
     </div>
-{{!-- Second section --}}
-   
-        {{!-- <script type="text/javascript"> 
-                Handlebars.registerHelper('areEqual', (value, value2)=>{
-                console.log(value)
-                console.log(value2)
-                return value == value2;
-                });
-        </script> --}}
-        <script src="/js/dashboard.js"></script>
-   {{!-- <tr>
-                                <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">2</td>
-                                <td class="px-6 py-4">Reishi extract</td>
-                                <td class="px-6 py-4">5</td>
-                                <td class="px-6 py-4">10-06-2022</td>
-                                <td class="px-6 py-4">$25.00</td>
-                            </tr>
-                            <tr  class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                                <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">3</td>
-                                <td class="px-6 py-4">Lion's Mane extract</td>
-                                <td class="px-6 py-4">5</td>
-                                <td class="px-6 py-4">11-06-2022</td>
-                                <td class="px-6 py-4">$50.00</td>
-                            </tr> --}}
-                        
-                
-                <!-- <div class="bg-gray-200 w-96 h-96 rounded-xl">    
-                    <div class="flex flex-row underline-offset-1 ">
-                        <div class="block mb-2 text-lg font-bold text-gray-900 dark:text-white p-3 first-letter:"> ID</div>
-                        <div class="block mb-2 text-lg font-bold text-gray-900 dark:text-white p-3 first-letter:"> Product</div>
-                        <div class="block mb-2 text-lg font-bold text-gray-900 dark:text-white p-3 first-letter:"> Qty</div>
-                        <div class="block mb-2 text-lg font-bold text-gray-900 dark:text-white p-3 first-letter:"> Date</div>
-                        <div class="block mb-2 text-lg font-bold text-gray-900 dark:text-white p-3 first-letter:"> Amount</div>
-                    </div>
-                </div> -->
+
+    <script src="/js/dashboard.js"></script>

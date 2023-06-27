@@ -17,26 +17,17 @@ const newSaleHandler = async(event)=>{
     
     const client_id = document.getElementById('client_name').value.trim();
 
-    console.log(client_id)
-    //todo esto para quantity y product
-    //filtras los products, split(,)
-    //parsear pasar de string a numero,
-    //pushear los valores numericos a un nuevo array 
-
-    //hacer un for loop para postear cada sale product individualmente
-
-    //array
     if (client_id) {
       const response = await fetch('/api/sales/', {
         method: 'POST',
         body: JSON.stringify({client_id}),
         headers: { 'Content-Type': 'application/json' },
       });
-          if (response.ok) {
+      if (response.ok) {
             document.location.replace('/dashboard');
-          } else {
-            alert('Failed to submit your sale');
-          }
+      } else {
+          alert('Failed to submit your sale');
+      }
       }
     };
 
