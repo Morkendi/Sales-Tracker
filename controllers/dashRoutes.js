@@ -153,6 +153,7 @@ router.get('/employee', withAuth, async (req,res)=>{
         res.render('employee',
         {
             loggedIn: req.session.loggedIn,
+            name: req.session.name, 
             employees
         })
     } catch(err) {
