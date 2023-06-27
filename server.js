@@ -34,6 +34,7 @@ const hbs = exphbs.create({
     },
     calculateCom: function(sales) {
       let totalSales = 0;
+      let comis;
       sales.forEach((sale) => {
         totalSales += sale.products.reduce((sum, product) => sum + (product.sale_product.quantity * product.price), 0);
         comis = totalSales*0.12;
