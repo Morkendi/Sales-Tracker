@@ -11,6 +11,11 @@ body {
   max-width: 330px;
   padding: 1rem;
   background-color: white;
+
+}
+
+.custom-form {
+  margin: auto;
 }
 
 .form-signin .form-floating:focus-within {
