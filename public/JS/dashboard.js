@@ -24,8 +24,8 @@ const newSaleHandler = async(event)=>{
         headers: { 'Content-Type': 'application/json' },
       });
       if (response.ok) {
-        document.location.replace('/dashboard');
-      } else {
+        document.location.reload();
+      } else {  
         alert('Failed to submit your sale');
       }
       }
@@ -52,8 +52,7 @@ const newOrderHandler= async (event)=>{
       parsedProdArr.push(parsedprod)
       parsedQuantArr.push(parsedquant)
     }
-    console.log(parsedProdArr)
-    console.log(parsedQuantArr)
+  
     let prod;
     let quant;
     if(product && quantity && sale_id){
