@@ -6,7 +6,7 @@
         </div>
         <div class="px-8">  
             <div class="text-lg font-medium text-black"> Nº of Sales </div>
-            <div class="text-3xl font-bold text-black"> 16 </div>
+            <div class="text-3xl font-bold text-black"> {{sales.length}} </div>
         </div>
         <div class="px-8"> 
             <div class="text-lg font-medium text-black"> Commissions earned </div>
@@ -92,10 +92,11 @@
                         </thead>
 
                         <tbody>
-
+                             
                             {{#each sale.sale_products as |saleProducts|}}
-
                             {{#each sale.products as |product|}}  
+
+                           
                             {{#if @../last}}   
                                 {{!-- {{#each sale.products as |product|}} --}}
                                 <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
