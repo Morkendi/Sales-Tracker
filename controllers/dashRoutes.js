@@ -115,7 +115,6 @@ router.get('/employee/:id', withAuth, async (req,res)=>{
 
         const employee = employeeData.get({ plain: true });
 
-        console.log(employee)
         res.render('employee',
         {
             loggedIn: req.session.loggedIn,
