@@ -45,7 +45,7 @@ const hbs = exphbs.create({
 });
 
 const sess = {
-  secret: CKIE_SCRT,
+  secret: process.env.CKIE_SCRT,
   cookie: {},
   resave: false,
   saveUninitialized: true,
