@@ -1,5 +1,5 @@
     <div class="p-6">
-        {{#each sales as |sale|}}
+        
         <div class="text-3xl font-bold text-black "> Sales History </div>     
         <div class="relative overflow-x-auto pt-3 shadow-md sm:rounded-lg">
             <table class="text-xs text-gray-700 uppercase bg-gray-50 dark:ng-gray-700 dark:text-gray-400">
@@ -14,17 +14,21 @@
                     </tr>
                 </thead>
                 <tbody>
-                     {{#each sale.products as |product|}}
-                    <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                        <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap 
-                        dark:text-white">1</td>
-                        <td class="px-6 py-4">Mix Oyster Mushroom</td>
-                        <td class="px-6 py-4">3</td>
-                        <td class="px-6 py-4">09-06-2022</td>
-                        <td class="px-6 py-4">$15.00</td>
-                        <td class="px-6 py-4">Restaurante Jamaica</td>
-                    </tr>
-                    <tr>
+                    {{#each sales as |sale|}}
+                      {{#each sale.products as |product|}} 
+                                {{!-- {{#each sale.products as |product|}} --}}
+                                <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                                <td class="px-6 py-4">{{sale.id}}</td>
+                                <td class="px-6 py-4">{{product.product_name}}</td>
+                                <td class="px-6 py-4">{{product.sale_product.quantity}}</td>
+                                <td class="px-6 py-4">{{sale.date_created}}</td>
+                                <td class="px-6 py-4">{{product.price}}$</td>
+                                <td class="px-6 py-4">{{sale.client.client_name}}</td> <!-- Display multiplication of quantity and price -->
+                                </tr>
+                            
+                        {{/each}} 
+                        {{/each}} 
+                    {{!-- <tr>
                         <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">2</td>
                         <td class="px-6 py-4">Reishi extract</td>
                         <td class="px-6 py-4">5</td>
@@ -39,7 +43,7 @@
                         <td class="px-6 py-4">11-06-2022</td>
                         <td class="px-6 py-4">$50.00</td>
                         <td class="px-6 py-4">Alejandro Salazar</td>
-                    </tr>
+                    </tr> --}}
                 </tbody>
                 </table>
         </div>
