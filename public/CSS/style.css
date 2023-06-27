@@ -1,148 +1,58 @@
-.login-container {
-    width: 100%;
-    display: flex;
-    overflow: auto;
-    min-height: 100vh;
-    align-items: center;
-    flex-direction: column;
-  }
-  .login-login {
-    width: 100%;
-    height: 1024px;
-    display: flex;
-    overflow: hidden;
-    position: relative;
-    align-items: flex-start;
-    flex-shrink: 0;
-    background-color: aqua;
-  }
+html,
+body {
+  height: 100%;
+  /* background-image: url("../images/Setas.png"); */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
 
-  .login-rectanglesignin {
-    top: 248px;
-    left: 0px;
-    right: 0px;
-    width: 487px;
-    height: 553px;
-    margin: auto;
-    position: absolute;
-  }
-  
-  .login-vector {
-    top: 248px;
-    left: 0px;
-    right: 0px;
-    width: 487px;
-    height: 86px;
-    margin: auto;
-    position: absolute;
-  }
-  .login-signinbutton {
-    top: 645px;
-    left: 0px;
-    right: 0px;
-    width: 432px;
-    height: 92px;
-    margin: auto;
-    position: absolute;
-  }
-  .login-login1 {
-    top: 679px;
-    left: 0px;
-    color: rgba(255, 255, 255, 1);
-    right: 0px;
-    width: 432px;
-    height: auto;
-    margin: auto;
-    position: absolute;
-    font-size: 30px;
-    font-style: Regular;
+.form-signin {
+  max-width: 330px;
+  padding: 1rem;
+  background-color: white;
+
+}
+
+.custom-form {
+  margin: auto;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.signin-button {
+    /* padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer; */
+    background: rgb(219,107,115);
+    background: linear-gradient(93deg, rgba(219,107,115,1) 17%, rgba(222,122,107,1) 48%, rgba(224,138,97,1) 78%);
+    display: flex;
+    width: 100%!important;
+    padding: 10px 19px 10px 10px;
+    align-items: flex-start;
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: 9px;
+    padding-top: 0.5rem!important;
+    padding-bottom: 0.5rem!important;
     text-align: center;
-    font-family: Roboto;
-    font-weight: 400;
-    line-height: normal;
-    font-stretch: normal;
-    text-decoration: none;
-  }
-  .login-signin {
-    top: 272px;
-    left: 0px;
-    color: rgba(255, 255, 255, 1);
-    right: 0px;
-    width: 487px;
-    height: auto;
-    margin: auto;
-    position: absolute;
-    font-size: 35px;
-    font-style: Regular;
-    text-align: center;
-    font-family: Roboto;
-    font-weight: 400;
-    line-height: normal;
-    font-stretch: normal;
-    text-decoration: none;
-  }
-  .login-keepme {
-    top: 597px;
-    left: 0px;
-    color: rgba(0, 0, 0, 1);
-    right: 0px;
-    width: 178px;
-    height: auto;
-    margin: auto;
-    position: absolute;
-    font-size: 18px;
-    font-style: Regular;
-    text-align: center;
-    font-family: Roboto;
-    font-weight: 400;
-    line-height: normal;
-    font-stretch: normal;
-    text-decoration: none;
-  }
-  .login-email {
-    top: 376px;
-    left: 462px;
-    color: rgba(0, 0, 0, 1);
-    height: auto;
-    position: absolute;
-    font-size: 28px;
-    font-style: Regular;
-    text-align: center;
-    font-family: Roboto;
-    font-weight: 400;
-    line-height: normal;
-    font-stretch: normal;
-    text-decoration: none;
-  }
-  .login-password {
-    top: 495px;
-    left: 462px;
-    color: rgba(0, 0, 0, 1);
-    height: auto;
-    position: absolute;
-    font-size: 28px;
-    font-style: Regular;
-    text-align: center;
-    font-family: Roboto;
-    font-weight: 400;
-    line-height: normal;
-    font-stretch: normal;
-    text-decoration: none;
-  }
-  .login-passwordbox {
-    top: 528px;
-    left: 464px;
-    width: 309px;
-    height: 43px;
-    position: absolute;
-    border-color: rgba(0, 0, 0, 1);
-  }
-  .login-emailbox {
-    top: 413px;
-    left: 463px;
-    width: 309px;
-    height: 43px;
-    position: absolute;
-    border-color: rgba(0, 0, 0, 1);
+
   }
   

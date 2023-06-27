@@ -26,6 +26,23 @@ router.get('/login', async (req,res)=>{
     }
 })
 
+
+router.get('/loginform', async (req,res)=>{   
+    try{
+        res.render('loginform');
+    } catch(err){
+        res.status(400).json(err)
+    }
+})
+
+router.get('/loginform', async (req,res)=>{   
+    try{
+        res.render('loginform');
+    } catch(err){
+        res.status(400).json(err)
+    }
+})
+
 router.get('/dashboard',withAuth ,async (req,res)=>{   
     try{
         const sale = await Sale.findAll({
@@ -58,8 +75,6 @@ router.get('/dashboard',withAuth ,async (req,res)=>{
 
         const clients = client.map((eachclient) => eachclient.get({plain: true}))
 
-        console.log(sales)
-        console.log(clients)
 
         res.render('dashboard',
         {
