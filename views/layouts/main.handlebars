@@ -35,29 +35,16 @@
                 </ul>
             </div>
             <div class="flex items-center gap-6">
-                <button class="bg-gradient-to-r from-rose-400 to-orange-300 text-white px-5 py-2 rounded-full hover:bg-[#87acec]">Log in</button>
+                {{#if loggedIn}}
+                <a href="/login"><button class="bg-gradient-to-r from-rose-400 to-orange-300 text-white px-5 py-2 rounded-full hover:bg-[#87acec]">Log Out</button></a>
+                {{else}}
+                 <a href="/login"><button class="bg-gradient-to-r from-rose-400 to-orange-300 text-white px-5 py-2 rounded-full hover:bg-[#87acec]">Log in</button></a>
+                 {{/if}}
                 <ion-icon onclick="onToggleMenu(this)" name="menu" class="text-3xl cursor-pointer md:hidden"></ion-icon>
             </div>
             
     </header>
 
- {{#if loggedIn}} 
-        <div> 
-            <button class="text-lg font-bold flex justify-end text-orange-500 p-6" id="logout"> Log Out </button>
-        </div>
-        {{else}}
-        <div> 
-            <a href="/login"><button class="text-lg font-bold flex justify-end text-orange-500 p-6"> Log In </button></a>
-        </div>
-        {{/if}}
-    </aside>
-    <main>
-        {{{body}}}
-    </main>
-    {{#if loggedIn}}
-    <script src="/js/logout.js"></script>
-    {{/if}}
-    <script src="./js/index.js"></script>
     
     <script>
         const navLinks = document.querySelector('.nav-links')
@@ -66,6 +53,16 @@
             navLinks.classList.toggle('top-[9%]')
         }
     </script>
+
 </body>
+
+    </aside>
+    <main>
+        {{{body}}}
+    </main>
+    {{#if loggedIn}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
+    <script src="./js/index.js"></script>
 
 </html>
