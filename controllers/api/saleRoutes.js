@@ -11,6 +11,7 @@ router.post('/', async (req, res) => {
             user_id: req.session.user_id,
             client_id: req.body.client_id
         });
+    res.status(200).json(newSale)
     } catch (err) {
         res.status(500).json(err);
     }

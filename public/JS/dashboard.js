@@ -25,7 +25,7 @@ const newSaleHandler = async(event)=>{
       });
       if (response.ok) {
         document.location.reload();
-      } else {  
+      } else { 
         alert('Failed to submit your sale');
       }
       }
