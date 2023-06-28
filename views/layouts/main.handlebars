@@ -18,7 +18,7 @@
     <div class="fixed flex flex-col top-0 left-0 w-64 bg-gray-900 h-full border-r">
         <div class="flex items-center p-5 mb-3 justify-center h-14 border-b">
         <div>
-             <img href="/dashboard" class="w-16 cursor-pointer justify-start" src="/images/Logo Habitual Corto.png" alt="...">
+            <img href="/dashboard" class="w-16 cursor-pointer justify-start" src="/images/Logo Habitual Corto.png" alt="...">
         </div>
         <div class="text-lg px-2" >Sales Tracker</div>
         </div>
@@ -50,9 +50,9 @@
             <li>
             <a href="/sales" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-white hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
                 <span class="inline-flex justify-center items-center ml-4">
-                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hover:text-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hover:text-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
                 </span>
                 <span class="ml-2 text-sm tracking-wide truncate" >Sales History</span>
             </a>
@@ -60,9 +60,9 @@
             <li>
             <a href="/products" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-white hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
                 <span class="inline-flex justify-center items-center ml-4">
-                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hover:text-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hover:text-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-             </svg>
+            </svg>
                 </span>
                 <span class="ml-2 text-sm tracking-wide truncate" >Products</span>
                 {{!-- <span class="px-2 py-0.5 ml-auto text-xs font-medium tracking-wide text-red-500 bg-red-50 rounded-full">1.2k</span> --}}
@@ -84,7 +84,7 @@
         {{{body}}}
     </div>
 </div>
-    
+
     <script>
         const navLinks = document.querySelector('.nav-links')
         function onToggleMenu(e){
@@ -96,6 +96,21 @@
 </body>
     
     {{#if loggedIn}}
-    <script src="./js/logout.js"> </script>
+    <script>
+        const logout = async () => {
+    const response = await fetch('/api/users/logout', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    });
+
+    if (response.ok) {
+    document.location.replace('/');
+    } else {
+    alert(response.statusText);
+    }
+};
+
+document.getElementById('logout').addEventListener('click', logout);
+    </script>
     {{/if}}
 </html>
