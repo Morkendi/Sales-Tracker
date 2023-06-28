@@ -24,7 +24,7 @@
                 <div class="text-3xl font-bold text-black p-4"> New Sale </div>  
                 <div class="bg-gray-400 w-64  shadow-xl rounded-xl flex flex-col">
                     <div class="pl-4" >
-                         <label for="user" class="block mb-2 text-lg font-bold text-gray-900 dark:text-white pt-3 ">User</label>
+                        <label for="user" class="block mb-2 text-lg font-bold text-gray-900 dark:text-white pt-3 ">User</label>
                         <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-11/12 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" id = "myList" onchange = "listPicker()" >   
                             {{#each clients as |client|}} 
                             <option data-id="{{id}}"> {{client_name}} </option>  
@@ -61,8 +61,8 @@
         </div>
     </div>
         {{!-- Sales History Section --}}
-         <div class="flex flex-row pl-6"> 
-             <div>
+        <div class="flex flex-row pl-6"> 
+            <div>
                 {{#each sales as |sale|}}
                 <div class="text-3xl font-bold text-black p-4">Sales History {{id}} </div>
                     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -78,7 +78,7 @@
                         </thead>
                         <tbody>
                             
-                         {{#each sale.products as |product|}} 
+                        {{#each sale.products as |product|}} 
 
                             
                                 <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
@@ -95,6 +95,84 @@
                     </div>
                     {{/each}}
             </div>
-         </div>
+        </div>
     </div>
-<script src="./js/dashboard.js"></script>
+
+<script>
+
+function listPicker() {  
+    let mylist = document.getElementById("myList");  
+    document.getElementById("client_name").value = mylist.options[mylist.selectedIndex].getAttribute('data-id'); 
+}  
+
+function salePicker() {  
+    let mylist = document.getElementById("mySaleList");  
+    document.getElementById("sale_name").value = mylist.options[mylist.selectedIndex].getAttribute('data-id'); 
+}  
+
+
+
+const newSaleHandler = async(event)=>{
+    event.preventDefault();
+
+    
+    const client_id = document.getElementById('client_name').value.trim();
+
+    if(client_id){
+        const response = await fetch('/api/sales/', {
+        method: 'POST',
+        body: JSON.stringify({client_id}),
+        headers: { 'Content-Type': 'application/json' },
+    });
+    if (response.ok) {
+        document.location.reload();
+    } else {  
+        alert('Failed to submit your sale');
+    } }
+    };
+
+const newOrderHandler= async (event)=>{
+event.preventDefault();
+
+    let product = document.getElementById('product').value.trim();
+    let quantity = document.getElementById('quantity').value.trim();
+    const sale_id = document.getElementById('sale_name').value.trim();
+
+    let productArr = product.split(',')
+    let quantityArr = quantity.split(',')
+
+    let parsedProdArr = [];
+    let parsedQuantArr = [];
+    let parsedprod;
+    let parsedquant;
+
+    for(let i=0; i<productArr.length; i++){
+        parsedprod = parseInt(productArr[i])
+        parsedquant = parseInt(quantityArr[i])
+        parsedProdArr.push(parsedprod)
+        parsedQuantArr.push(parsedquant)
+    }
+
+    let prod;
+    let quant;
+    if(product && quantity && sale_id){
+        for(let i=0; i<parsedProdArr.length;i++){
+        prod= parsedProdArr[i];
+        quant = parsedQuantArr[i];
+        const response = await fetch('/api/saleProducts/', {
+                method: 'POST',
+                body: JSON.stringify({ prod, quant, sale_id}),
+                headers: { 'Content-Type': 'application/json' },
+            });
+            if (response.ok) {
+                document.location.replace('/dashboard');
+            } else {
+                alert('Failed to submit your Order');
+            }
+        }
+    }
+}
+document.getElementById('newSale').addEventListener("click", newSaleHandler)
+document.getElementById('newOrder').addEventListener("click", newOrderHandler)
+
+</script>
