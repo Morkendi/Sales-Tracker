@@ -23,9 +23,11 @@ const newSaleHandler = async(event)=>{
         body: JSON.stringify({client_id}),
         headers: { 'Content-Type': 'application/json' },
       });
+      console.log(response)
       if (response.ok) {
+        console.log('post')
         document.location.reload();
-      } else {  
+      } else { 
         alert('Failed to submit your sale');
       }
       }
