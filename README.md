@@ -2,7 +2,7 @@
 
 <div align="center">
 <img src="https://img.shields.io/badge/License-MIT-blue"></img>
-<img src="https://img.shields.io/github/repo-size/Morkendi/E-Commerce?color=green&label=Repo%20Size"></img>
+<img src="https://img.shields.io/github/repo-size/Morkendi/Sales-Tracker?color=green&label=Repo%20Size"></img>
 </div>
 
 <div align="center"> <h2>Dependencies</h2> </div>
