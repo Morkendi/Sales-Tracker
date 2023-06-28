@@ -48,17 +48,8 @@ Follow the instructions to use this application:
 The following images demonstrate the functionality of the application.
 <div align="center">
 
-<img src="" alt=""></img>
-    <figcaption></figcaption>
+![mockup](./public/images/deployed.gif)
 
-<img src="" alt=""></img>
-    <figcaption></figcaption>
-
-<img src="" alt=""></img>
-    <figcaption></figcaption>
-
-<img src="" alt=""></img>
-    <figcaption></figcaption>
 </div>
 
 ## Credits
@@ -76,4 +67,4 @@ This project utilizes an MIT License. [Read more](https://choosealicense.com/lic
 
 ## Links
 - Link to [GitHub repo](https://github.com/Morkendi/Sales-Tracker)
-- Link to [Deployment]()
+- Link to [Deployment](https://sales-tracker-t4p2-f41e20adc513.herokuapp.com/products)
